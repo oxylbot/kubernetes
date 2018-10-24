@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: commands-deployment
+  labels:
+    app: commands
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: commands
+  template:
+    metadata:
+      name: commands-pod
+      labels:
+        app: commands
+    spec:
+      containers:
+      - name: commands
+        image: node
+        ports:
+        - containerPort: 80

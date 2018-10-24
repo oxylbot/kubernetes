@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: commands-service
+  labels:
+    app: commands
+spec:
+  selector:
+    app: commands
+  ports:
+  - protocol: TCP
+    port: 1337
+    targetPort: 1337
