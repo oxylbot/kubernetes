@@ -8,6 +8,7 @@ spec:
   selector:
     app: commands
   ports:
-  - protocol: TCP
+  - name: rest API
+    protocol: TCP
     port: 1337
     targetPort: 1337
