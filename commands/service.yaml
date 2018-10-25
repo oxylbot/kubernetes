@@ -8,7 +8,15 @@ spec:
   selector:
     app: commands
   ports:
-  - name: rest API
+  - name: gRPC communication
     protocol: TCP
+    port: 1338
+    targetPort: 1338
+  - name: rest communication
+    protocol: TPC
     port: 1337
     targetPort: 1337
+  - name: discord API
+    protocol: TPC
+    port: 80
+    targetPort: 80
