@@ -1,21 +1,17 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: commands-service
+  name: sharder-service
   labels:
-    app: commands
+    app: sharder
 spec:
   selector:
-    app: commands
+    app: sharder
   ports:
   - name: gRPC communication
     protocol: TCP
     port: 8901
     targetPort: 8901
-  - name: rest communication
-    protocol: TPC
-    port: 8900
-    targetPort: 8900
   - name: discord API
     protocol: TPC
     port: 80
