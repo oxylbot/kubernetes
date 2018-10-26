@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: commands
-        image: node
+        image: oxyl/commands
         ports:
         - name: gRPC communication
           protocol: TCP
