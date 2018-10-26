@@ -1,0 +1,14 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: gateway-autoscale
+  labels:
+    app: gateway
+spec:
+  scaleTargetRef:
+    apiVersion: extensions/v1
+    kind: Deployment
+    name: gateway-deployment
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 10

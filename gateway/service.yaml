@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: gateway-service
+  labels:
+    app: gateway
+spec:
+  selector:
+    app: gateway
+  ports:
+  - name: gRPC communication
+    protocol: TCP
+    port: 8901
+    targetPort: 8901
+  - name: rest communication
+    protocol: TPC
+    port: 8900
+    targetPort: 8900
