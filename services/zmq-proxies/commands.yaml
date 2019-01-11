@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: commands-zmq-proxy-service
+  namespace: "{{namespace}}"
+spec:
+  selector:
+    app: commands-zmq-proxy
+  ports:
+    - name: pull
+      port: 8906
+      protocol: "TCP"
+    - name: push
+      port: 8907
+      protocol: "TCP"

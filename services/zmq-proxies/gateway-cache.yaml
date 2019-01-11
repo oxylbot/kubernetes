@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: gateway-cache-zmq-proxy-service
+  namespace: "{{namespace}}"
+spec:
+  selector:
+    app: gateway-cache-zmq-proxy
+  ports:
+    - name: pull
+      port: 8902
+      protocol: "TCP"
+    - name: push
+      port: 8903
+      protocol: "TCP"

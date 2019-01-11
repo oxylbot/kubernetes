@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: sharder-messages-zmq-proxy-service
+  namespace: "{{namespace}}"
+spec:
+  selector:
+    app: sharder-messages-zmq-proxy
+  ports:
+    - name: pull
+      port: 8904
+      protocol: "TCP"
+    - name: push
+      port: 8905
+      protocol: "TCP"

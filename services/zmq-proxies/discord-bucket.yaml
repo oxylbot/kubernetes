@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: discord-bucket-zmq-proxy-service
+  namespace: "{{namespace}}"
+spec:
+  selector:
+    app: discord-bucket-zmq-proxy
+  ports:
+    - name: dealer
+      port: 8900
+      protocol: "TCP"
+    - name: router
+      port: 8901
+      protocol: "TCP"
