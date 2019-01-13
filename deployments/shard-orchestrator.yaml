@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shard-orchestrator-deployment
+  namespace: "{{namespace}}"
+spec:
+  selector:
+    matchLabels:
+      app: shard-orchestrator
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: shard-orchestrator
+    spec:
+      containers:
+      - name: shard-orchestrator
+        image: oxyl/shard-orchestrator
+        env:
+          - name: NODE_ENV
+            valueFrom:
+              configMapKeyRef:
+                name: environment
+                key: node
+          - name: BUCKET_SOCKET_ADDRESS
+            value: "tcp://discord-bucket-zmq-proxy-service:8900"
+          - name: REDIS_DATABASE
+            valueFrom:
+              configMapKeyRef:
+                name: redis
+                key: database
+          - name: REDIS_HOST
+            value: "redis"
+          - name: REDIS_PORT
+            value: 8379

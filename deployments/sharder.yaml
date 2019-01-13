@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sharder-deployment
+  namespace: "{{namespace}}"
+spec:
+  selector:
+    matchLabels:
+      app: sharder
+  replicas: 0
+  template:
+    metadata:
+      labels:
+        app: sharder
+    spec:
+      containers:
+      - name: sharder
+        image: oxyl/sharder
+        env:
+          - name: NODE_ENV
+            valueFrom:
+              configMapKeyRef:
+                name: environment
+                key: node
+          - name: CACHE_SOCKET_ADDRESS
+            value: "tcp://gateway-cache-zmq-proxy-service:8902"
+          - name: MESSAGE_SOCKET_ADDRESS
+            value: "tcp://sharder-messages-zmq-proxy-service:8904"

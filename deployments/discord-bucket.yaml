@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discord-bucket-deployment
+  namespace: "{{namespace}}"
+spec:
+  selector:
+    matchLabels:
+      app: discord-bucket
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: discord-bucket
+    spec:
+      containers:
+      - name: discord-bucket
+        image: oxyl/discord-bucket
+        env:
+          - name: NODE_ENV
+            valueFrom:
+              configMapKeyRef:
+                name: environment
+                key: node
+          - name: TOKEN
+            valueFrom: 
+              secretKeyRef:
+                name: discord
+                key: token
+          - name: BUCKET_SOCKET_ADDRESS
+            value: "tcp://discord-bucket-zmq-proxy-service:8901"
+          - name: REDIS_DATABASE
+            valueFrom:
+              configMapKeyRef:
+                name: redis
+                key: database
+          - name: REDIS_HOST
+            value: "redis"
+          - name: REDIS_PORT
+            value: 8379

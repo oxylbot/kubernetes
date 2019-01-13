@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sharder-deployment
+  namespace: "{{namespace}}"
+spec:
+  selector:
+    matchLabels:
+      app: sharder
+  replicas: 0
+  template:
+    metadata:
+      labels:
+        app: sharder
+    spec:
+      containers:
+      - name: sharder
+        image: oxyl/sharder
+        env:
+          - name: NODE_ENV
+            valueFrom:
+              configMapKeyRef:
+                name: environment
+                key: node
+          - name: BUCKET_SOCKET_ADDRESS
+            value: "tcp://discord-bucket-zmq-proxy-service:8900"
+          - name: COMMAND_SOCKET_ADDRESS
+            value: "tcp://commands-zmq-proxy:8906"
+          - name: MESSAGE_SOCKET_ADDRESS
+            value: "tcp://sharder-messages-zmq-proxy-service:8905"
