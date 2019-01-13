@@ -15,3 +15,7 @@ all the configuration files needed in the kubernetes cluster
 * :8905 - PULL from sharder-messages-zmq-proxy
 * :8906 - PUSH to commands-zmq-proxy
 * :8907 - PULL from commands-zmq-proxy
+
+## Redis Databases
+* 0 - discord-bucket
+* 1 - shard-orchestrator
