@@ -1,4 +1,4 @@
-# kubernetes
+# kubernetes [![Build Status](https://travis-ci.com/oxylbot/kubernetes.svg?branch=master)](https://travis-ci.com/oxylbot/kubernetes)
 all the configuration files needed in the kubernetes cluster
 
 ## Ports used:
