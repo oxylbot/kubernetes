@@ -1,9 +1,7 @@
 # kubernetes
 all the configuration files needed in the kubernetes cluster
 
-## Ports:
-* :80 - HTTP requests
-* :443 - HTTPs requests
+## Ports used:
 * :5432 - PostgreSQL port
 * :6379 - Redis port
 * :8500 - Gateway REST API
@@ -16,6 +14,6 @@ all the configuration files needed in the kubernetes cluster
 * :8906 - PUSH to commands-zmq-proxy
 * :8907 - PULL from commands-zmq-proxy
 
-## Redis Databases
+## Redis Databases Used
 * 0 - discord-bucket
 * 1 - shard-orchestrator

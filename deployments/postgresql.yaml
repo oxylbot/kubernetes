@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+  namespace: "{{namespace}}"
+spec:
+  selector:
+    matchLabels:
+      app: postgres
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:11.1-alpine
+        env:
+          - name: POSTGRES_USER
+            valueFrom: 
+              secretKeyRef:
+                name: postgres
+                key: user
+          - name: POSTGRES_PASSWORD
+            valueFrom: 
+              secretKeyRef:
+                name: postgres
+                key: password
+          - name: POSTGRES_DB
+            valueFrom:
+              configMapKeyRef:
+                name: postgres
+                key: database
+        ports:
+          - postgres: 5432
+        resources:
+          limits:
+            cpu: "0.1"
+        volumeMounts:
+          - name: postgres-storage
+            mountPath: /data/postgresql
+  volumes:
+  - name: postgres-storage
+    emptyDir: {}

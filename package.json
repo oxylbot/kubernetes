@@ -1,0 +1,23 @@
+{
+  "name": "kubernetes",
+  "version": "0.0.1",
+  "description": "kubernetes config files for oxylbot",
+  "main": "deploy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oxylbot/kubernetes.git"
+  },
+  "author": "oxylbot",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oxylbot/kubernetes/issues"
+  },
+  "homepage": "https://github.com/oxylbot/kubernetes#readme",
+  "devDependencies": {
+    "eslint": "5.12.0",
+    "eslint-config-recommended": "4.0.0"
+  }
+}

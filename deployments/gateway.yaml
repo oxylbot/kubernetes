@@ -44,5 +44,4 @@ spec:
           - name: CACHE_SOCKET_ADDRESS
             value: "tcp://gateway-cache-zmq-proxy-service:8903"
         ports:
-        - cache-proxy: 8903
         - rest-api: 8500
