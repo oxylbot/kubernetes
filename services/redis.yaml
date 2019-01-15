@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: redis-service
+  namespace: "{{namespace}}"
+spec:
+  selector:
+    app: redis
+  ports:
+    - name: redis
+      port: 6379
+      protocol: "TCP"

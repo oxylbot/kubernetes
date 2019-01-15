@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: gateway-service
+  namespace: "{{namespace}}"
+spec:
+  selector:
+    app: gateway
+  ports:
+    - name: api
+      port: 8500
+      protocol: "TCP"

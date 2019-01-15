@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: shard-orchestrator-service
+  namespace: "{{namespace}}"
+spec:
+  selector:
+    app: shard-orchestrator
+  ports:
+    - name: api
+      port: 8501
+      protocol: "TCP"

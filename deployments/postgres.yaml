@@ -39,7 +39,7 @@ spec:
             cpu: "0.1"
         volumeMounts:
           - name: postgres-storage
-            mountPath: /data/postgresql
+            mountPath: /data/postgres
   volumes:
   - name: postgres-storage
     emptyDir: {}

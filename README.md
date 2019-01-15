@@ -5,6 +5,7 @@ all the configuration files needed in the kubernetes cluster
 * :5432 - PostgreSQL port
 * :6379 - Redis port
 * :8500 - Gateway REST API
+* :8501 - Shard orchestrator API
 * :8900 - ROUTER to discord-bucket-zmq-proxy
 * :8901 - DEALER from discord-bucket-zmq-proxy
 * :8902 - PUSH to gateway-cache-zmq-proxy

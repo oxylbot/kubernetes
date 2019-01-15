@@ -27,6 +27,8 @@ spec:
           - name: REDIS_DATABASE
             value: 1
           - name: REDIS_HOST
-            value: "redis"
+            value: "redis-service"
           - name: REDIS_PORT
             value: 8379
+          - name: API_PORT
+            value: 8501
