@@ -21,9 +21,3 @@ spec:
         resources:
           limits:
             cpu: "0.1"
-        volumeMounts:
-          - name: redis-storage
-            mountPath: /data/redis
-  volumes:
-  - name: redis-storage
-    emptyDir: {}

@@ -32,14 +32,17 @@ spec:
               configMapKeyRef:
                 name: postgres
                 key: database
+          - name: PGDATA
+            value: "/home/{{namespace}}/postgres_data"
         ports:
           - postgres: 5432
         resources:
           limits:
             cpu: "0.1"
         volumeMounts:
-          - name: postgres-storage
-            mountPath: /data/postgres
+          - name: postgres-persistent-storage
+            mountPath: /home/{{namespace}}/postgres_data
   volumes:
-  - name: postgres-storage
-    emptyDir: {}
+  - name: postgres-persistent-storage
+    persistentVolumeClaim:
+      claimName: postgres-pv-claim

@@ -2,11 +2,50 @@ const fs = require("fs").promises;
 const { exec } = require("child_process");
 const path = require("path");
 
-async function init() {
-	await fs.mkdir(path.resolve(__dirname, "configured"));
+const config = require("./config");
+const secret = require("./secret");
 
-	await applyDirectory(path.resolve(__dirname, "deployments"));
+config.environment.node = process.env.NODE_ENV;
+
+const namespace = {
+	production: "oxyl",
+	staging: "oxyl-staging",
+	development: "oxyl-development"
+}[process.env.NODE_ENV];
+
+async function execCommand(command) {
+	console.log(command);
+	const out = await await new Promise((resolve, reject) => {
+		exec(command, (err, stdout, stderr) => {
+			if(err) reject(err);
+			else if(stderr) reject(stderr);
+			else if(stdout) resolve(stdout);
+		});
+	});
+
+	console.log(`${out}\n\n`);
+	return out;
+}
+
+async function init() {
+	await execCommand(`kubectl delete namespaces ${namespace}`);
+
+	for(const [name, values] of Object.entries(config)) {
+		await execCommand(`kubectl create configmap ${name} ${
+			Object.entries(values).map(([key, value]) => `--from-literal=${key}=${value}`).join(" ")
+		} --namespace=${namespace}`);
+	}
+
+	for(const [name, values] of Object.entries(secret)) {
+		await execCommand(`kubectl create secret generic ${name} ${
+			Object.entries(values).map(([key, value]) => `--from-literal=${key}=${value}`).join(" ")
+		} --namespace=${namespace}`);
+	}
+
+	await fs.mkdir(path.resolve(__dirname, "configured"));
 	await applyDirectory(path.resolve(__dirname, "services"));
+	await applyDirectory(path.resolve(__dirname, "other"));
+	await applyDirectory(path.resolve(__dirname, "deployments"));
 
 	const configuredFiles = await fs.readdir(path.resolve(__dirname, "configured"));
 	for(const file of configuredFiles) await fs.unlink(path.resolve(__dirname, "configured", file));
@@ -24,13 +63,7 @@ async function applyDirectory(directory) {
 			await applyDirectory(resolvedPath);
 		} else if(stat.isFile()) {
 			const configuredFile = await configureFile(resolvedPath);
-			await new Promise((resolve, reject) => {
-				exec(`kubectl apply -f ${configuredFile}`, (err, stdout, stderr) => {
-					if(err) reject(err);
-					else if(stderr) reject(stderr);
-					else if(stdout) resolve(stdout);
-				});
-			});
+			await execCommand(`kubectl apply -f ${configuredFile}`);
 		}
 	}
 }
@@ -38,11 +71,7 @@ async function applyDirectory(directory) {
 async function configureFile(filePath) {
 	const file = await fs.readFile(filePath, "utf8");
 
-	const configured = file.replace(/\{\{namespace\}\}/g, {
-		production: "oxyl",
-		staging: "oxyl-staging",
-		development: "oxyl-development"
-	}[process.env.NODE_ENV]);
+	const configured = file.replace(/\{\{namespace\}\}/g, namespace);
 
 	const name = `${(Date.now() + process.hrtime().reduce((a, b) => a + b)).toString(36)}.yml`;
 	const location = path.resolve(__dirname, "configured", name);

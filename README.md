@@ -18,3 +18,32 @@ all the configuration files needed in the kubernetes cluster
 ## Redis Databases Used
 * 0 - discord-bucket
 * 1 - shard-orchestrator
+
+## Example `config.json`
+
+```json
+{
+	"environment": {
+		"node": ""
+	},
+	"postgres": {
+		"database": "oxyl"
+	}
+}
+```
+
+* Leave environment.node empty, it is autofilled.
+
+## example `secret.json`
+
+```json
+{
+	"discord": {
+		"token": ""
+	},
+	"postgres": {
+		"user": "",
+		"password": ""
+	}
+}
+```
