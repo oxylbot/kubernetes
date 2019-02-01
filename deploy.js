@@ -13,6 +13,12 @@ const namespace = {
 	development: "oxyl-development"
 }[process.env.NODE_ENV];
 
+const tag = {
+	production: "production",
+	staging: "staging",
+	development: "latest"
+}[process.env.NODE_ENV];
+
 async function execCommand(command) {
 	console.log(command);
 	const out = await await new Promise((resolve, reject) => {
@@ -71,7 +77,8 @@ async function applyDirectory(directory) {
 async function configureFile(filePath) {
 	const file = await fs.readFile(filePath, "utf8");
 
-	const configured = file.replace(/\{\{namespace\}\}/g, namespace);
+	const configured = file.replace(/\{\{namespace\}\}/g, namespace)
+		.replace(/\{\{tag\}\}/g, tag);
 
 	const name = `${(Date.now() + process.hrtime().reduce((a, b) => a + b)).toString(36)}.yml`;
 	const location = path.resolve(__dirname, "configured", name);

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: sharder
-        image: oxyl/sharder
+        image: oxyl/sharder:{{tag}}
         env:
           - name: NODE_ENV
             valueFrom:
