@@ -12,7 +12,7 @@ spec:
     metadata:
       labels:
         app: discord-bucket-zmq-proxy
-        zmq-proxy: true
+        zmq-proxy: "true"
     spec:
       containers:
       - name: discord-bucket-zmq-proxy

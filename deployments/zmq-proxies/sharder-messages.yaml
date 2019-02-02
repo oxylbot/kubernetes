@@ -12,7 +12,7 @@ spec:
     metadata:
       labels:
         app: sharder-messages-zmq-proxy
-        zmq-proxy: true
+        zmq-proxy: "true"
     spec:
       containers:
       - name: sharder-messages-zmq-proxy

@@ -12,7 +12,7 @@ spec:
     metadata:
       labels:
         app: gateway-cache-zmq-proxy
-        zmq-proxy: true
+        zmq-proxy: "true"
     spec:
       containers:
       - name: gateway-cache-zmq-proxy
