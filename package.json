@@ -1,6 +1,6 @@
 {
   "name": "kubernetes",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "kubernetes config files for oxylbot",
   "main": "deploy.js",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/oxylbot/kubernetes#readme",
   "devDependencies": {
-    "eslint": "5.12.1",
+    "eslint": "5.13.0",
     "eslint-config-recommended": "4.0.0"
   }
 }
