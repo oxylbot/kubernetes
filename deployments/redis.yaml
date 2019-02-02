@@ -17,7 +17,8 @@ spec:
       - name: redis
         image: redis:5.0.3-alpine
         ports:
-          - redis: 6379
+        - containerPort: 6397
+          name: REDIS
         resources:
           limits:
             cpu: "0.1"

@@ -27,5 +27,7 @@ spec:
           - name: OUTGOING_TYPE
             value: "8"
         ports:
-        - incoming: 8906
-        - outgoing: 8907
+        - containerPort: 8906
+          name: INCOMING
+        - containerPort: 8906
+          name: OUTGOING
