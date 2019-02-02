@@ -8,7 +8,6 @@ spec:
     matchLabels:
       app: shard-orchestrator
   replicas: 1
-  serviceName: shard-orchestrator-service
   template:
     metadata:
       labels:
