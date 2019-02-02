@@ -1,6 +1,6 @@
 {
   "name": "kubernetes",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "kubernetes config files for oxylbot",
   "main": "deploy.js",
   "scripts": {
