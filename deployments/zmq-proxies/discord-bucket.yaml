@@ -23,9 +23,9 @@ spec:
           - name: OUTGOING_ADDRESS
             value: "tcp://127.0.0.1:8901"
           - name: INCOMING_TYPE
-            value: 5
+            value: "5"
           - name: OUTGOING_TYPE
-            value: 6
+            value: "6"
         ports:
         - incoming: 8900
         - outgoing: 8901

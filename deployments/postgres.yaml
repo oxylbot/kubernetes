@@ -35,7 +35,7 @@ spec:
           - name: PGDATA
             value: "/home/{{namespace}}/postgres_data"
         ports:
-          - postgres: 5432
+          - postgres: "5432"
         volumeMounts:
           - name: postgres-persistent-storage
             mountPath: /home/{{namespace}}/postgres_data
