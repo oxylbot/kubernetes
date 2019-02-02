@@ -28,6 +28,6 @@ spec:
             value: "8"
         ports:
         - containerPort: 8902
-          name: INCOMING
+          name: incoming
         - containerPort: 8903
-          name: OUTGOING
+          name: outgoing
