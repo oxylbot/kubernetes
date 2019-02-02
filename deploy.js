@@ -20,7 +20,7 @@ const tag = {
 }[process.env.NODE_ENV];
 
 async function execCommand(command) {
-	console.log(command);
+	console.log(`$ ${command}`);
 	const out = await await new Promise((resolve, reject) => {
 		exec(command, (err, stdout, stderr) => {
 			if(err) reject(err);
@@ -29,12 +29,16 @@ async function execCommand(command) {
 		});
 	});
 
-	console.log(`${out}\n\n`);
+	console.log(`${out}\n`);
 	return out;
 }
 
 async function init() {
-	await execCommand(`kubectl delete namespaces ${namespace}`);
+	try {
+		await execCommand(`kubectl delete namespaces ${namespace}`);
+	} catch(err) {} // eslint-disable-line no-empty
+
+	await execCommand(`kubectl create namespace ${namespace}`);
 
 	for(const [name, values] of Object.entries(config)) {
 		await execCommand(`kubectl create configmap ${name} ${
