@@ -25,7 +25,7 @@ spec:
           - name: BUCKET_SOCKET_ADDRESS
             value: "tcp://discord-bucket-zmq-proxy-service:8900"
           - name: REDIS_DATABASE
-            value: 1
+            value: "1"
           - name: REDIS_HOST
             value: "redis-service"
           - name: REDIS_PORT
