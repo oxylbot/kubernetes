@@ -8,12 +8,12 @@ spec:
     matchLabels:
       app: shard-orchestrator
   replicas: 1
+  serviceName: shard-orchestrator-service
   template:
     metadata:
       labels:
         app: shard-orchestrator
     spec:
-      serviceName: shard-orchestrator-service
       containers:
       - name: shard-orchestrator
         image: oxyl/shard-orchestrator:{{tag}}
