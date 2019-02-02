@@ -13,6 +13,10 @@ spec:
       labels:
         app: postgres
     spec:
+      volumes:
+      - name: postgres-persistent-storage
+        persistentVolumeClaim:
+          claimName: postgres-pv-claim
       containers:
       - name: postgres
         image: postgres:11.1-alpine
@@ -40,7 +44,3 @@ spec:
         volumeMounts:
           - name: postgres-persistent-storage
             mountPath: /home/{{namespace}}/postgres_data
-  volumes:
-  - name: postgres-persistent-storage
-    persistentVolumeClaim:
-      claimName: postgres-pv-claim
