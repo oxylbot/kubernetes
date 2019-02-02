@@ -47,4 +47,4 @@ spec:
             value: "8500"
         ports:
         - containerPort: 8500
-          name: REST_API
+          name: rest-api
