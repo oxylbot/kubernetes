@@ -1,5 +1,6 @@
-const fs = require("fs").promises;
 const { exec } = require("child_process");
+const fs = require("fs").promises;
+const hostname = require("os").hostname;
 const path = require("path");
 
 const config = require("./config");
@@ -13,7 +14,7 @@ const namespace = {
 	development: "oxyl-development"
 }[process.env.NODE_ENV];
 
-const tag = {
+const imageTag = {
 	production: "production",
 	staging: "staging",
 	development: "latest"
@@ -82,7 +83,8 @@ async function configureFile(filePath) {
 	const file = await fs.readFile(filePath, "utf8");
 
 	const configured = file.replace(/\{\{namespace\}\}/g, namespace)
-		.replace(/\{\{tag\}\}/g, tag);
+		.replace(/\{\{tag\}\}/g, imageTag)
+		.replace(/\{\{hostname\}\}/g, hostname);
 
 	const name = `${(Date.now() + process.hrtime().reduce((a, b) => a + b)).toString(36)}.yml`;
 	const location = path.resolve(__dirname, "configured", name);
