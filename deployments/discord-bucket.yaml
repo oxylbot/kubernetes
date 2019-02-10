@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: discord-bucket-deployment
+  name: discord-bucket
   namespace: "{{namespace}}"
 spec:
   selector:
@@ -35,4 +35,4 @@ spec:
           - name: REDIS_HOST
             value: "redis-service"
           - name: REDIS_PORT
-            value: "8379"
+            value: "6379"
