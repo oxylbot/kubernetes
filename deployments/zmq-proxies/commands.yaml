@@ -12,11 +12,12 @@ spec:
     metadata:
       labels:
         app: commands-zmq-proxy
-        zmq-proxy: true
+        zmq-proxy: "true"
     spec:
       containers:
       - name: commands-zmq-proxy
         image: oxyl/zmq-proxy:{{tag}}
+        imagePullPolicy: Always
         env:
           - name: INCOMING_ADDRESS
             value: "tcp://127.0.0.1:8906"

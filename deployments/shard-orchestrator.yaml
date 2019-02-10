@@ -16,6 +16,7 @@ spec:
       containers:
       - name: shard-orchestrator
         image: oxyl/shard-orchestrator:{{tag}}
+        imagePullPolicy: Always
         env:
           - name: NODE_ENV
             valueFrom:
