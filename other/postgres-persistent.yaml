@@ -1,8 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: postgres-pv
-  namespace: "{{namespace}}" 
+  name: postgres-pv-{{namespace}}
   labels: 
     volume-for: postgres
 spec:
