@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: discord-bucket-zmq-proxy-deployment
+  name: discord-bucket-zmq-proxy
   namespace: "{{namespace}}"
 spec:
   selector:

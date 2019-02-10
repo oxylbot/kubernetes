@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: postgres-deployment
+  name: postgres
   namespace: "{{namespace}}"
 spec:
   selector:
@@ -14,7 +14,7 @@ spec:
         app: postgres
     spec:
       volumes:
-      - name: postgres-persistent-storage
+      - name: postgres-data
         persistentVolumeClaim:
           claimName: postgres-pv-claim
       containers:
@@ -37,10 +37,10 @@ spec:
                 name: postgres
                 key: database
           - name: PGDATA
-            value: "/data/postgres"
+            value: "/home/postgres_data"
         ports:
         - containerPort: 5432
           name: postgres
         volumeMounts:
-          - name: postgres-persistent-storage
-            mountPath: /data/postgres
+          - name: postgres-data
+            mountPath: "/home/postgres_data"

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: discord-bucket-deployment
+  name: discord-bucket
   namespace: "{{namespace}}"
 spec:
   selector:
