@@ -16,6 +16,7 @@ spec:
       containers:
       - name: discord-bucket
         image: oxyl/discord-bucket:{{tag}}
+        imagePullPolicy: Always
         env:
           - name: NODE_ENV
             valueFrom:

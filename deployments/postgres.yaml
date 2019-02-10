@@ -37,10 +37,10 @@ spec:
                 name: postgres
                 key: database
           - name: PGDATA
-            value: "/home/{{namespace}}/postgres_data"
+            value: "/data/postgres"
         ports:
         - containerPort: 5432
           name: postgres
         volumeMounts:
           - name: postgres-persistent-storage
-            mountPath: /home/{{namespace}}/postgres_data
+            mountPath: /data/postgres

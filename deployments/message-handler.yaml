@@ -16,6 +16,7 @@ spec:
       containers:
       - name: sharder
         image: oxyl/sharder:{{tag}}
+        imagePullPolicy: Always
         env:
           - name: NODE_ENV
             valueFrom:
