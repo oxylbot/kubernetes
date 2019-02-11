@@ -38,14 +38,6 @@ spec:
               secretKeyRef:
                 name: postgres
                 key: password
-          - name: PG_HOST
-            value: "postgres-service"
-          - name: PG_PORT
-            value: "5432"
-          - name: CACHE_SOCKET_ADDRESS
-            value: "tcp://gateway-cache-zmq-proxy-service:8903"
-          - name: API_PORT
-            value: "8500"
         ports:
         - containerPort: 8500
           name: rest-api

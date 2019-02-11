@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: gateway-cache-zmq-proxy-service
+  name: gateway-cache-zmq-proxy
   namespace: "{{namespace}}"
 spec:
   selector:

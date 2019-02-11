@@ -23,15 +23,7 @@ spec:
               configMapKeyRef:
                 name: environment
                 key: node
-          - name: BUCKET_SOCKET_ADDRESS
-            value: "tcp://discord-bucket-zmq-proxy-service:8900"
           - name: SHARDS_PER_SHARDER
             value: "5"
           - name: REDIS_DATABASE
             value: "1"
-          - name: REDIS_HOST
-            value: "redis-service"
-          - name: REDIS_PORT
-            value: "6379"
-          - name: API_PORT
-            value: "8501"

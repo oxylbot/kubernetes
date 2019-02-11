@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: sharder-messages-zmq-proxy-service
+  name: sharder-messages-zmq-proxy
   namespace: "{{namespace}}"
 spec:
   selector:

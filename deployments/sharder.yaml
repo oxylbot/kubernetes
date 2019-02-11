@@ -8,7 +8,7 @@ spec:
     matchLabels:
       app: sharder
   replicas: 0
-  serviceName: "shard-orchestrator-service"
+  serviceName: "shard-orchestrator"
   template:
     metadata:
       labels:
@@ -30,10 +30,10 @@ spec:
                 name: discord
                 key: token
           - name: CACHE_SOCKET_ADDRESS
-            value: "tcp://gateway-cache-zmq-proxy-service:8902"
+            value: "tcp://gateway-cache-zmq-proxy:8902"
           - name: MESSAGE_SOCKET_ADDRESS
-            value: "tcp://sharder-messages-zmq-proxy-service:8904"
+            value: "tcp://sharder-messages-zmq-proxy:8904"
           - name: ORCHESTRATOR_API
-            value: "http://shard-orchestrator-service:8501/"
+            value: "http://shard-orchestrator:8501/"
           - name: GATEWAY_API
-            value: "http://gateway-service:8500/"
+            value: "http://gateway:8500/"

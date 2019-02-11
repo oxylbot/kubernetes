@@ -23,9 +23,3 @@ spec:
               configMapKeyRef:
                 name: environment
                 key: node
-          - name: BUCKET_SOCKET_ADDRESS
-            value: "tcp://discord-bucket-zmq-proxy-service:8900"
-          - name: COMMAND_SOCKET_ADDRESS
-            value: "tcp://commands-zmq-proxy:8906"
-          - name: MESSAGE_SOCKET_ADDRESS
-            value: "tcp://sharder-messages-zmq-proxy-service:8905"
