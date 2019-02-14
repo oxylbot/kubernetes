@@ -30,5 +30,5 @@ spec:
         ports:
         - containerPort: 8906
           name: incoming
-        - containerPort: 8906
+        - containerPort: 8907
           name: outgoing
