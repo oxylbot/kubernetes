@@ -7,9 +7,9 @@ spec:
   selector:
     app: discord-bucket-zmq-proxy
   ports:
-    - name: dealer
+    - name: router
       port: 8900
       protocol: "TCP"
-    - name: router
+    - name: dealer
       port: 8901
       protocol: "TCP"
