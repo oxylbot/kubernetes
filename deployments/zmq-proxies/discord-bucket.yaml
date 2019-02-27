@@ -20,9 +20,9 @@ spec:
         imagePullPolicy: Always
         env:
           - name: INCOMING_ADDRESS
-            value: "tcp://127.0.0.1:8900"
+            value: "tcp://0.0.0.0:8900"
           - name: OUTGOING_ADDRESS
-            value: "tcp://127.0.0.1:8901"
+            value: "tcp://0.0.0.0:8901"
           - name: INCOMING_TYPE
             value: "6"
           - name: OUTGOING_TYPE
