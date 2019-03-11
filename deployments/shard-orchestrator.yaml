@@ -13,6 +13,7 @@ spec:
       labels:
         app: shard-orchestrator
     spec:
+      serviceAccountName: sharder-scaler
       containers:
       - name: shard-orchestrator
         image: oxyl/shard-orchestrator:{{tag}}
@@ -27,3 +28,5 @@ spec:
             value: "5"
           - name: REDIS_DATABASE
             value: "1"
+          - name: SHARD_ORCHESTRATOR_SERVICE_PORT
+            value: "8501"
