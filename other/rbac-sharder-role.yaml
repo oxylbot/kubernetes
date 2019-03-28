@@ -4,7 +4,7 @@ metadata:
   namespace: default
   name: sharder-scaler
 rules:
-- apiGroups: []
+- apiGroups: ["apps"]
   resources:
   - "statefulsets/scale"
   verbs:
