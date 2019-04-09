@@ -13,7 +13,7 @@ spec:
       labels:
         app: shard-orchestrator
     spec:
-      serviceAccountName: sharder-scaler
+      serviceAccountName: sharder-scaling
       containers:
       - name: shard-orchestrator
         image: oxyl/shard-orchestrator:{{tag}}
