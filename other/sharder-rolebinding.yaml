@@ -5,7 +5,7 @@ metadata:
   namespace: "{{namespace}}"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
+  kind: Role
   name: sharder-scaling
 subjects:
   - kind: ServiceAccount
