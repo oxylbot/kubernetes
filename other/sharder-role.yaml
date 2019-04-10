@@ -5,8 +5,5 @@ metadata:
   name: sharder-scaling
 rules:
 - apiGroups: ["apps"]
-  resources:
-  - "statefulsets/scale"
-  verbs:
-  - patch
-  - update
+  resources: ["statefulsets", "deployments"]
+  verbs: ["patch", "update"]
