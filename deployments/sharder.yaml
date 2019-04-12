@@ -29,11 +29,3 @@ spec:
               secretKeyRef:
                 name: discord
                 key: token
-          - name: CACHE_SOCKET_ADDRESS
-            value: "tcp://gateway-cache-zmq-proxy:8902"
-          - name: MESSAGE_SOCKET_ADDRESS
-            value: "tcp://sharder-messages-zmq-proxy:8904"
-          - name: ORCHESTRATOR_API
-            value: "http://shard-orchestrator:8501/"
-          - name: GATEWAY_API
-            value: "http://gateway:8500/"
