@@ -28,5 +28,3 @@ spec:
             value: "5"
           - name: REDIS_DATABASE
             value: "1"
-          - name: SHARD_ORCHESTRATOR_SERVICE_PORT
-            value: "8501"
