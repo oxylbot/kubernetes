@@ -28,3 +28,6 @@ spec:
             value: "5"
           - name: REDIS_DATABASE
             value: "1"
+        ports:
+        - containerPort: 8501
+          name: rest-api
