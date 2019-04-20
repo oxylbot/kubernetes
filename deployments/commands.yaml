@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: message-handler
+  name: commands
   namespace: "{{namespace}}"
 spec:
   selector:
     matchLabels:
-      app: message-handler
+      app: commands
   replicas: 1
   template:
     metadata:
       labels:
-        app: message-handler
+        app: commands
     spec:
       containers:
-      - name: message-handler
-        image: oxyl/message-handler:{{tag}}
+      - name: commands
+        image: oxyl/commands:{{tag}}
         imagePullPolicy: Always
         env:
           - name: NODE_ENV
