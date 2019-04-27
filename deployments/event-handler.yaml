@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: commands
+  name: event-handler
   namespace: "{{namespace}}"
 spec:
   selector:
     matchLabels:
-      app: commands
+      app: event-handler
   replicas: 1
   template:
     metadata:
       labels:
-        app: commands
+        app: event-handler
     spec:
       containers:
-      - name: commands
-        image: oxyl/commands:{{tag}}
+      - name: event-handler
+        image: oxyl/event-handler:{{tag}}
         imagePullPolicy: Always
         env:
           - name: NODE_ENV
