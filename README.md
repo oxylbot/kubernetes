@@ -12,8 +12,8 @@ all the configuration files needed in the kubernetes cluster
 * :8903 - PULL from gateway-cache-zmq-proxy
 * :8904 - PUSH to sharder-messages-zmq-proxy
 * :8905 - PULL from sharder-messages-zmq-proxy
-* :8906 - PUSH to commands-zmq-proxy
-* :8907 - PULL from commands-zmq-proxy
+* :8906 - PUSH to event-handler-zmq-proxy
+* :8907 - PULL from event-handler-zmq-proxy
 
 ## Redis Databases Used
 * 0 - discord-bucket

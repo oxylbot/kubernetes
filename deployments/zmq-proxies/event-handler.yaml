@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: commands-zmq-proxy
+  name: event-handler-zmq-proxy
   namespace: "{{namespace}}"
 spec:
   selector:
     matchLabels:
-      app: commands-zmq-proxy
+      app: event-handler-zmq-proxy
   replicas: 1
   template:
     metadata:
       labels:
-        app: commands-zmq-proxy
+        app: event-handler-zmq-proxy
         zmq-proxy: "true"
     spec:
       containers:
-      - name: commands-zmq-proxy
+      - name: event-handler-zmq-proxy
         image: oxyl/zmq-proxy:{{tag}}
         imagePullPolicy: Always
         env:
