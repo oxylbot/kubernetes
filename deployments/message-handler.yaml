@@ -23,3 +23,8 @@ spec:
               configMapKeyRef:
                 name: environment
                 key: node
+          - name: BOT_ID
+            valueFrom:
+              configMapKeyRef:
+                name: discord
+                key: id

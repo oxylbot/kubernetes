@@ -3,9 +3,11 @@ const fs = require("fs").promises;
 const hostname = require("os").hostname;
 const path = require("path");
 
-const config = require("./config");
+const config = require(`./config-${process.env.NODE_ENV}`);
 const secret = require("./secret");
 
+if(!config.environment) config.environment = {};
+if(!config.environment.node) config.environment.node = {};
 config.environment.node = process.env.NODE_ENV;
 
 const namespace = {
