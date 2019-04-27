@@ -4,7 +4,7 @@ const hostname = require("os").hostname;
 const path = require("path");
 
 const config = require(`./config-${process.env.NODE_ENV}`);
-const secret = require("./secret");
+const secret = require("./secret-${process.env.NODE_ENV}");
 
 if(!config.environment) config.environment = {};
 if(!config.environment.node) config.environment.node = {};
