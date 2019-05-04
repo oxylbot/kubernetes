@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: event-handler
-  replicas: 1
+  replicas: 0
   template:
     metadata:
       labels:
