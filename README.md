@@ -6,6 +6,7 @@ all the configuration files needed in the kubernetes cluster
 * :6379 - Redis port
 * :8500 - Gateway REST API
 * :8501 - Shard orchestrator API
+* :8502 - Dashboard site & API
 * :8900 - ROUTER to discord-bucket-zmq-proxy
 * :8901 - DEALER from discord-bucket-zmq-proxy
 * :8902 - PUSH to gateway-cache-zmq-proxy
@@ -18,28 +19,31 @@ all the configuration files needed in the kubernetes cluster
 ## Redis Databases Used
 * 0 - discord-bucket
 * 1 - shard-orchestrator
+* 2 - oauth2 for dashboard
+* 3 - ratelimits for dashboard
 
 ## Example `config.json`
 
 ```json
 {
-	"environment": {
-		"node": ""
-	},
 	"postgres": {
 		"database": "oxyl"
+	},
+	"discord": {
+		"id": "441692408363876352"
 	}
 }
 ```
 
-* Leave environment.node empty, it is autofilled.
+* discord.id is the client id for the bot
 
 ## example `secret.json`
 
 ```json
 {
 	"discord": {
-		"token": ""
+		"token": "",
+		"secret": ""
 	},
 	"postgres": {
 		"user": "",

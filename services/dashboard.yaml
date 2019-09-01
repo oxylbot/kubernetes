@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dashboard
+  namespace: "{{namespace}}"
+spec:
+  selector:
+    app: dashboard
+  ports:
+    - name: site-and-api
+      port: 8502
+      protocol: "TCP"
