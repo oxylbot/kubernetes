@@ -1,7 +1,4 @@
 const { exec } = require("child_process");
-const fs = require("fs").promises;
-const hostname = require("os").hostname;
-const path = require("path");
 
 const namespace = {
 	production: "oxyl",
