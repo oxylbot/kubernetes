@@ -40,4 +40,4 @@ spec:
                 key: password
         ports:
         - containerPort: 8500
-          name: rest-api
+          name: http

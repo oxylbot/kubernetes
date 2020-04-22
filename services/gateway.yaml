@@ -7,6 +7,6 @@ spec:
   selector:
     app: gateway
   ports:
-    - name: api
+    - name: http
       port: 8500
       protocol: "TCP"

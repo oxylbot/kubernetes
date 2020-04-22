@@ -7,6 +7,6 @@ spec:
   selector:
     app: dashboard
   ports:
-    - name: site-and-api
+    - name: http
       port: 8502
       protocol: "TCP"

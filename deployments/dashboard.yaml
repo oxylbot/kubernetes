@@ -39,4 +39,4 @@ spec:
             value: "3"
         ports:
         - containerPort: 8502
-          name: site-and-rest-api
+          name: http

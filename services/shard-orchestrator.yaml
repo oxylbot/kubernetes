@@ -7,6 +7,6 @@ spec:
   selector:
     app: shard-orchestrator
   ports:
-    - name: api
+    - name: http
       port: 8501
       protocol: "TCP"

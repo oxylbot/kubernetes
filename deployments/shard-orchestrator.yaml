@@ -30,4 +30,4 @@ spec:
             value: "1"
         ports:
         - containerPort: 8501
-          name: rest-api
+          name: http
