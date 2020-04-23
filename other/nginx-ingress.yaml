@@ -4,14 +4,10 @@ metadata:
   name: nginx-ingress
   namespace: "{{namespace}}"
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-  - hosts:
-      - temp.minemidnight.work
-      - oxyl.org
-      - alpha.oxyl.org
-      - beta.oxyl.org
+  - host: "{{dashboard_url}}"
     http:
       paths:
       - path: /

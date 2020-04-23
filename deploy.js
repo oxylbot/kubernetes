@@ -22,6 +22,12 @@ const imageTag = {
 	development: "latest"
 }[process.env.NODE_ENV];
 
+const dashboardURL = {
+	production: "oxyl.org",
+	staging: "beta.oxyl.org",
+	development: "alpha.oxyl.org"
+}[process.env.NODE_ENV];
+
 const actions = {
 	async execCommand(command) {
 		console.log(`$ ${command}`);
@@ -74,15 +80,21 @@ const actions = {
 
 		const configured = file.replace(/\{\{namespace\}\}/g, namespace)
 			.replace(/\{\{tag\}\}/g, imageTag)
-			.replace(/\{\{hostname\}\}/g, hostname);
+			.replace(/\{\{hostname\}\}/g, hostname)
+			.replace(/\{\{dashboard_url\}\}/g, dashboardURL);
 
 		const name = `${(Date.now() + process.hrtime().reduce((a, b) => a + b)).toString(36)}.yml`;
 		const location = path.resolve(__dirname, name);
 
 		await fs.writeFile(location, configured);
-		await actions.execCommand(`kubectl apply -f ${location}`);
-		await fs.unlink(location);
+		try {
+			await actions.execCommand(`kubectl apply -f ${location}`);
+		} catch(err) {
+			await fs.unlink(location);
+			throw err;
+		}
 
+		await fs.unlink(location);
 		return location;
 	}
 };
