@@ -4,6 +4,7 @@ metadata:
   name: dashboard
   namespace: "{{namespace}}"
 spec:
+  type: LoadBalancer
   selector:
     app: dashboard
   ports:
