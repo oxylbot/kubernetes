@@ -23,9 +23,9 @@ const imageTag = {
 }[process.env.NODE_ENV];
 
 const dashboardURL = {
-	production: "oxyl.org",
-	staging: "beta.oxyl.org",
-	development: "alpha.oxyl.org"
+	production: "oxylbot.com",
+	staging: "beta.oxylbot.com",
+	development: "alpha.oxylbot.com"
 }[process.env.NODE_ENV];
 
 const actions = {
