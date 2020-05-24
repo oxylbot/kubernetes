@@ -21,13 +21,18 @@ spec:
           - name: NODE_ENV
             valueFrom:
               configMapKeyRef:
-                name: environment
-                key: node
+                name: config
+                key: environment
           - name: BOT_ID
             valueFrom:
               configMapKeyRef:
-                name: discord
-                key: id
+                name: config
+                key: clientID
+          - name: DASHBOARD_URL
+            valueFrom:
+              configMapKeyRef:
+                name: config
+                key: dashboardURL
           - name: SECRET
             valueFrom: 
               secretKeyRef:

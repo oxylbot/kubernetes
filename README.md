@@ -22,20 +22,18 @@ all the configuration files needed in the kubernetes cluster
 * 2 - oauth2 for dashboard
 * 3 - ratelimits for dashboard
 
+config and secret json files should be named config-{ENV} and secret-{ENV}, respectively
+
 ## Example `config.json`
 
 ```json
 {
-	"postgres": {
-		"database": "oxyl"
-	},
-	"discord": {
-		"id": "441692408363876352"
-	}
+	"namespace": "oxyl-development",
+	"dashboardURL": "oxylbot.com",
+	"database": "oxyl",
+	"clientID": "441692408363876352"
 }
 ```
-
-* discord.id is the client id for the bot
 
 ## example `secret.json`
 

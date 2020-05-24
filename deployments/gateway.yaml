@@ -21,12 +21,12 @@ spec:
           - name: NODE_ENV
             valueFrom:
               configMapKeyRef:
-                name: environment
-                key: node
+                name: config
+                key: environment
           - name: PG_DATABASE
             valueFrom:
               configMapKeyRef:
-                name: postgres
+                name: config
                 key: database
           - name: PG_USER
             valueFrom:

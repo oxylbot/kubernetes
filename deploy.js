@@ -5,28 +5,15 @@ const path = require("path");
 
 const config = require(`./config-${process.env.NODE_ENV}`);
 const secret = require(`./secret-${process.env.NODE_ENV}`);
+config.environment = process.env.NODE_ENV;
 
-if(!config.environment) config.environment = {};
-if(!config.environment.node) config.environment.node = {};
-config.environment.node = process.env.NODE_ENV;
-
-const namespace = {
-	production: "oxyl",
-	staging: "oxyl-staging",
-	development: "oxyl-development"
-}[process.env.NODE_ENV];
+const namespace = config.namespace;
 
 const imageTag = {
 	production: "production",
 	staging: "staging",
 	development: "latest"
-}[process.env.NODE_ENV];
-
-const dashboardURL = {
-	production: "oxylbot.com",
-	staging: "beta.oxylbot.com",
-	development: "alpha.oxylbot.com"
-}[process.env.NODE_ENV];
+}[config.environment];
 
 const actions = {
 	async execCommand(command) {
@@ -51,11 +38,9 @@ const actions = {
 		await actions.execCommand(`kubectl create namespace ${namespace}`);
 	},
 	async applyConfig() {
-		for(const [name, values] of Object.entries(config)) {
-			await actions.execCommand(`kubectl create configmap ${name} ${
-				Object.entries(values).map(([key, value]) => `--from-literal=${key}=${value}`).join(" ")
-			} --namespace=${namespace}`);
-		}
+		await actions.execCommand(`kubectl create configmap config ${
+			Object.entries(config).map(([key, value]) => `--from-literal=${key}=${value}`).join(" ")
+		} --namespace=${namespace}`);
 	},
 	async applySecrets() {
 		for(const [name, values] of Object.entries(secret)) {
@@ -81,7 +66,7 @@ const actions = {
 		const configured = file.replace(/\{\{namespace\}\}/g, namespace)
 			.replace(/\{\{tag\}\}/g, imageTag)
 			.replace(/\{\{hostname\}\}/g, hostname)
-			.replace(/\{\{dashboard_url\}\}/g, dashboardURL);
+			.replace(/\{\{dashboard_url\}\}/g, config.dashboardURL);
 
 		const name = `${(Date.now() + process.hrtime().reduce((a, b) => a + b)).toString(36)}.yml`;
 		const location = path.resolve(__dirname, name);

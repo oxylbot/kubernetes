@@ -1,10 +1,7 @@
+const config = require(`./config-${process.env.NODE_ENV}`);
 const { exec } = require("child_process");
 
-const namespace = {
-	production: "oxyl",
-	staging: "oxyl-staging",
-	development: "oxyl-development"
-}[process.env.NODE_ENV];
+const namespace = config.namespace;
 
 const actions = {
 	async execCommand(command) {

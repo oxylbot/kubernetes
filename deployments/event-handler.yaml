@@ -21,5 +21,5 @@ spec:
           - name: NODE_ENV
             valueFrom:
               configMapKeyRef:
-                name: environment
-                key: node
+                name: config
+                key: environment

@@ -22,8 +22,8 @@ spec:
           - name: NODE_ENV
             valueFrom:
               configMapKeyRef:
-                name: environment
-                key: node
+                name: config
+                key: environment
           - name: SHARDS_PER_SHARDER
             value: "5"
           - name: REDIS_DATABASE

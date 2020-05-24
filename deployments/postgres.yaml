@@ -34,7 +34,7 @@ spec:
           - name: POSTGRES_DB
             valueFrom:
               configMapKeyRef:
-                name: postgres
+                name: config
                 key: database
           - name: PGDATA
             value: "/home/postgres_data"
