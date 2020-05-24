@@ -18,7 +18,7 @@ const actions = {
 		return out;
 	},
 	async deleteNamespace() {
-		await actions.execCommand(`kubectl delete namespaces ${namespace}`);
+		await actions.execCommand(`kubectl delete namespace ${namespace}`);
 	},
 	async deletePersistentVolume() {
 		await actions.execCommand(`kubectl delete pv postgres-pv-${namespace}`);

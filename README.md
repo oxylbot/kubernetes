@@ -29,7 +29,7 @@ config and secret json files should be named config-{ENV} and secret-{ENV}, resp
 ```json
 {
 	"namespace": "oxyl-development",
-	"dashboardURL": "oxylbot.com",
+	"dashboardURL": "http://oxylbot.com",
 	"database": "oxyl",
 	"clientID": "441692408363876352"
 }
