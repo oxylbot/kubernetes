@@ -12,7 +12,7 @@ spec:
   volumeMode: Filesystem
   persistentVolumeReclaimPolicy: Retain
   local:
-    path: "/home/postgres_data/{{namespace}}"
+    path: "/home/postgres_data"
   nodeAffinity:
     required:
       nodeSelectorTerms:
