@@ -2,6 +2,7 @@ const { exec } = require("child_process");
 const fs = require("fs").promises;
 const hostname = require("os").hostname;
 const path = require("path");
+const { URL } = require("url");
 
 const config = require(`./config-${process.env.NODE_ENV}`);
 const secret = require(`./secret-${process.env.NODE_ENV}`);
@@ -66,7 +67,7 @@ const actions = {
 		const configured = file.replace(/\{\{namespace\}\}/g, namespace)
 			.replace(/\{\{tag\}\}/g, imageTag)
 			.replace(/\{\{hostname\}\}/g, hostname)
-			.replace(/\{\{dashboard_url\}\}/g, config.dashboardURL);
+			.replace(/\{\{dashboard_hostname\}\}/g, new URL(config.dashboardURL).hostname);
 
 		const name = `${(Date.now() + process.hrtime().reduce((a, b) => a + b)).toString(36)}.yml`;
 		const location = path.resolve(__dirname, name);

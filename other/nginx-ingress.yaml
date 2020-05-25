@@ -7,7 +7,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-  - host: "{{dashboard_url}}"
+  - host: "{{dashboard_hostname}}"
     http:
       paths:
       - path: /
