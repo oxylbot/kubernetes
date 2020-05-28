@@ -9,8 +9,8 @@ all the configuration files needed in the kubernetes cluster
 * :8502 - Dashboard site & API
 * :8900 - ROUTER to discord-bucket-zmq-proxy
 * :8901 - DEALER from discord-bucket-zmq-proxy
-* :8902 - PUSH to gateway-cache-zmq-proxy
-* :8903 - PULL from gateway-cache-zmq-proxy
+* :8902 - now open
+* :8903 - now open
 * :8904 - PUSH to sharder-messages-zmq-proxy
 * :8905 - PULL from sharder-messages-zmq-proxy
 * :8906 - PUSH to event-handler-zmq-proxy
