@@ -29,7 +29,7 @@ spec:
           - name: NAMESPACE
             value: "{{namespace}}"
           - name: SHARDER_API_PORT 
-            value: 8503
+            value: "8503"
         ports:
         - containerPort: 8501
           name: http
