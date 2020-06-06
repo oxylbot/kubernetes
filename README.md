@@ -2,11 +2,15 @@
 all the configuration files needed in the kubernetes cluster
 
 ## Ports used:
+#### Misc
 * :5432 - PostgreSQL port
 * :6379 - Redis port
+#### REST APIs
 * :8500 - Gateway REST API
 * :8501 - Shard orchestrator API
 * :8502 - Dashboard site & API
+* :8503 - Sharder APIs
+#### ZMQ
 * :8900 - ROUTER to discord-bucket-zmq-proxy
 * :8901 - DEALER from discord-bucket-zmq-proxy
 * :8902 - now open
@@ -18,7 +22,6 @@ all the configuration files needed in the kubernetes cluster
 
 ## Redis Databases Used
 * 0 - discord-bucket
-* 1 - shard-orchestrator
 * 2 - oauth2 for dashboard
 * 3 - ratelimits for dashboard
 

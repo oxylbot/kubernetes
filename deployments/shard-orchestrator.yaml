@@ -26,8 +26,10 @@ spec:
                 key: environment
           - name: SHARDS_PER_SHARDER
             value: "5"
-          - name: REDIS_DATABASE
-            value: "1"
+          - name: NAMESPACE
+            value: "{{namespace}}"
+          - name: SHARDER_API_PORT 
+            value: 8503
         ports:
         - containerPort: 8501
           name: http
