@@ -7,3 +7,6 @@ rules:
 - apiGroups: ["apps"]
   resources: ["statefulsets"]
   verbs: ["patch"]
+- apiGroups: [""]
+  resources: ["services"]
+  verbs: ["create"]
