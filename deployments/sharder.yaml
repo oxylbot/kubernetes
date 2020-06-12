@@ -29,3 +29,6 @@ spec:
               secretKeyRef:
                 name: discord
                 key: token
+        ports:
+          - containerPort: 8503
+            name: http
